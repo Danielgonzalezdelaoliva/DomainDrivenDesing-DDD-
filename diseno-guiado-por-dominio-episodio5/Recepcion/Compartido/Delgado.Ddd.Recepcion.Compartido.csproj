@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Delgado.Ddd.KernellCompartido" />
+    <None Remove="Modelos\" />
+    <None Remove="Modelos\Cita\" />
+    <None Remove="System.ComponentModel.Annotations" />
+    <None Remove="Modelos\TipoDeCita\" />
+    <None Remove="Modelos\Cliente\" />
+    <None Remove="Modelos\Calendario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Delgado.Ddd.KernellCompartido" Version="1.0.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modelos\" />
+    <Folder Include="Modelos\Cita\" />
+    <Folder Include="Modelos\TipoDeCita\" />
+    <Folder Include="Modelos\Cliente\" />
+    <Folder Include="Modelos\Calendario\" />
+  </ItemGroup>
+</Project>

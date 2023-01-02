@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Authors>Henry H. Delgado</Authors>
+    <Description>Libreria con objetos comunes entre dominios. Esta libreria sigue las practicas de DDD con terminologia en Espanol</Description>
+    <PackageIcon>delgado-opensource.png</PackageIcon>
+    <RepositoryUrl>https://gitlab.com/open-source-delgado/nucleo-compartido</RepositoryUrl>
+    <PackageTags>DDD;Domain Driven Design;</PackageTags>
+    <PackageReleaseNotes>Agregando entidad base, evento base, e bases de interfaces para repositorios</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\delgado-opensource.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.GuardClauses" Version="4.0.0" />
+    <PackageReference Include="Ardalis.Specification" Version="6.0.1" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>

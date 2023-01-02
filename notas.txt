@@ -1,0 +1,132 @@
+lenguaje ubicuo: lenguaje univeral que es entendido por todas las partes implicadas en la solucion
+
+
+Objeto anemico: objetos, entidades que solo tiene propiedades. Para DDD esto es un error. Una entidad 
+que tener aparte de las propiedades tambien tiene representar funcionalidad
+
+CRUD Create - Read - Update - Delete
+DTO Data Transfert Objeto
+
+Tipos de objetos
+Objeto Entidad: Cuando necesitamos representar un objeto como valor único.
+ ej. Cliente. Normalmente necesiamos un id para identificar un único cliente
+ Normalmente se utiliza GUID (Globally Unique Identifier) para identificar. De esta manera el valor que indentifica no esta ligado a una logica en la bbdd
+Objeto de Valor: cuando los propios atributos es suficiente para deficir el objeto. Tambien definido como la concanetación de valores lo hacen único
+ ej. tiempo de reserva en un calendario. con la hora de inicio y fin sería suficiente para deficir la franja reservada
+ 
+ 
+Bounded context
+ Para definir entidades dentro de un contexto limitado. De esta manera podemos definir un mismo nombre para entidades diferentes. Ya que dentro del contexto de cada entidad
+ la representacion puede ser diferentes
+  ej Ticket de reserva y Ticket pago
+  
+Context Mapping: 
+ Para diferentes contextos, podemos tener mismas entidades. Y cada una de estas entidades puede representar propiedades difentes. Esta representación se denomina ACL.
+ Tambien existe existe otra representación conocidad como Shared Kernel que es utilizada cuando varios contextos utilizan mismas librerias. Cualquier modificación de esta 
+ librería puede afectar al resto de contextos
+ 
+ Dominio principal o core
+ 
+ Dominio secundario o soporte
+ 
+ Kernel Compartido: 
+Normalmente suele ser una biblioteca de clases para unificar proceso. Por ejemplo validación de tipo de datos
+Esta biblioteca tiene que ser definida para poder utilizar valores genericos <T>. De esta manera no asegurammos que no existe una dependencia entre el dominio y el kernel
+Para asegurarnos que no hay acoplamiento, creamos un nuget package para que el kernel sea utilizado cualquier dominio.
+
+Dentro del domnio cuando estamos definiendo las entidades y evitando los objetos anemicos, la entidad tendra un constructor y sus propiedades . Estas propiedades puede acceder a ellas 
+mediante el get y para establecer el valor se utiliza private set. Dentro de la deficio de la propiedad debemos indicar algún metodo para evitar objetos anemico. Estos metodos solo deben
+representar logica de negocio. Esta logica no reprenta funcionaldiad de BBDD o logica asociada la infraestructura. Por ejemplo. Crear listas, validar los datos introducidos... 
+
+Buscar mas info sobre la patron de especificaciones (specification pattern) en la capa dominio. Por lo que he visto se utiliza para definir los metodos para seleccionar la informacion
+, es decir, creamos queries para seleccionar los datos pero en un capa superior a la infraestructura. Es decir es este punto no conocemos que
+bd hay por detrás.
+
+capa infraestructura: 
+En esta capa se define la comunicación con la bd o la comunicación con rabbitmq
+
+Buscar información sobre la libreria ardalis. Utilizada para el manejo de control de los datos de las propiedades. O incluso para genera apis
+más senillas a diferencia de las apis generadas por visualcode
+
+Orquestacion de procesos --> Kubernetes
+Orquestacion de infraestructura --> Terraforms  = separar la infraestructura en diferenes lugares/niveles
+
+Para DDD, es importante comunicar los procesos via asincronos. Es decir, no espera la respuesta a nueva petición. Para lograr esta comunicacion
+es importante, utilizar event bus en la comunicación de los procesos. El proceso recibe del cliete(UI) una petición. Esta petición se envia
+al miscroservicio1 y este la envia al event bus. En este punto el proceso se desentiende y la peticion (=asincrona) y el event bus genera
+el resto de eventos para que la peticion inicial se procese.  Este proceso es llamado pub/sub = publicar evento / subscribir al evento
+
+Continuos intregration = build + unit test + integration test
+continuos deployment = pasar a producción la nueva version. .No estoy seguro pero puede que se utilize las gitactions
+
+Agregados:
+Es una entidad propia que está definido porque una entidad padre necesita una entidad hija. Esta entidad hija es un agregado si al elimnar
+ esta entidad hija no es necesario eliminar la entidad padre.
+  El punto clave es la dependencia, el agregado si o si debe ser referenciado al objeto raíz, 
+  si un agregado hace referencia a más de un objeto de dominio, entonces no es agregado.
+
+Existe el concepto de agregado de Raiz. Que es un agregado que tiene a su vez otros agregados.   
+  
+Factoria: para crear objetos... No me queda claro
+
+
+Por lo general la capa dominio solo tendrá representado las entidades y los agregados
+Repositorio
+Es la capa donde vamos a definir que metodos existen para acceder a la BBDD. Pero sin indicar especificamente el tipo de BBDD. Es decir,
+defines un metodo generico para cada dominio. En la capa dominio implementara el metodo generico.
+
+
+Infraestructura: es la implemantacion con la BBDD. Podemos tener varias capas de infraestructura. Por ejemplo SQL, MySQL
+
+
+Mediator Pattern (MediatR)
+https://dev.to/isaacojeda/parte-1-cqrs-y-mediatr-implementando-cqrs-en-aspnet-56oe
+https://www.youtube.com/watch?v=3xFiPvWL9i4&list=PLRYYxG5OI8qjgIksW6uOO16zDKD-itbiq&index=10
+Para comunicar procesos entre ellos. Estos procesos no tienen porque saber que existen otros procesos. Es el mediador el que realiza esta
+función.
+NOTA: no me ha quedado claro con la demo que utilidad tiene.
+
+El patrón mediador simplemente es la definición de un objeto que encapsula como otros objetos interactúan entre sí. En lugar de tener dos o más objetos que dependen directamente de otros objetos, solo toman dependencia directa de un “mediador” y este se encarga de gestionar las interacciones entre objetos
+
+
+
+
+Servicios: cuando un metodo o funcion no esta claramnete definida dentro de una entidad. Es decir, que este metodo tiene una funcionalidad
+que involucra a variass entidades. Agregados o Dominio
+Los servicios pueden estar en varias capas. Puede estar dentro del Dominio o dentro de la capa Infraestructura
+
+Object Oriented Desing(OOO)
+
+
+
+implemantacion DDD de prueba
+https://www.youtube.com/watch?v=e8jzUhvN320&list=PLRYYxG5OI8qiNn7fy4KRTKp2-K8rRyob7
+
+
+Por defecto siempre se progama en modo asincrono. Con lo que todos los metodos no es necesario indicar si es asisncrono (Async)
+
+
+Todas las entidades tienes en comun eventos: 
+
+Eventos Dominio:    ocurren dentro del dominio
+Eventos Integracion: ocurren en diferentes contextos (entre diferenetes contextos)
+
+
+Las diferentes capas que existen en una solución cliente - servidor
+
+Cliente (Angular, Blazor, Xamarin)
+API
+Domain / Core
+Infraestructura
+
+
+
+Event Storming 
+https://www.youtube.com/watch?v=cgvNG_jl7bA&list=PLRYYxG5OI8qiNn7fy4KRTKp2-K8rRyob7&index=3
+
+con la aplicación miro facilitas esta intrepretacion
+ https://miro.com/app/board/uXjVP1rDiIw=/
+
+
+
+

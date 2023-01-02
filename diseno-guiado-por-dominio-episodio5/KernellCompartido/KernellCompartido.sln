@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.11
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delgado.Ddd.KernellCompartido", "KernellCompartido\Delgado.Ddd.KernellCompartido.csproj", "{4C561FAC-06A9-4B97-A2C5-90E052736B02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C2196D9-AFDD-4287-9075-F02D49B9D213}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C561FAC-06A9-4B97-A2C5-90E052736B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C561FAC-06A9-4B97-A2C5-90E052736B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C561FAC-06A9-4B97-A2C5-90E052736B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C561FAC-06A9-4B97-A2C5-90E052736B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F53C1E56-37BD-40B7-AEFF-789C5F516280}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		description = @Tutorial de Diseño Guiado por el Dominio (Domain Driven Design).\nShared Kernell | Kernell Compartido
+	EndGlobalSection
+EndGlobal

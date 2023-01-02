@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Description>Libreria con informacion y logica para comunicarse con la base de datos</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Compartido\Delgado.Ddd.Recepcion.Compartido.csproj" />
+    <ProjectReference Include="..\Delgado.Ddd.Recepcion.Dominio\Delgado.Ddd.Recepcion.Dominio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Delgado.Ddd.KernellCompartido" Version="1.0.0" />
+    <PackageReference Include="Ardalis.Specification.EntityFrameworkCore" Version="5.2.0" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Ardalis.EFCore.Extensions" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.11">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="5.0.11" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\" />
+    <None Remove="Mensajes\" />
+    <None Remove="Datos\Config\" />
+    <None Remove="Datos\Sinc\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Datos\" />
+    <Folder Include="Mensajes\" />
+    <Folder Include="Datos\Config\" />
+    <Folder Include="Datos\Sincronizaciones\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+﻿-- ejecutar el siguiente comando desde el folder Delgado.Ddd.Recepcion.Api
+dotnet ef migrations add NOMBRE_DE_LA_MIGRACION -c appdbcontext -p ../Delgado.Ddd.Recepcion.Infraestructura/Delgado.Ddd.Recepcion.Infraestructura.csproj -s Delgado.Ddd.Recepcion.Api.csproj -o Datos/Migracion

@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Description>Clases relacionadas con la logica del negocio (dominio). Excluye cualquier adopcion de technologia.
+Este continue pura logica de acuerdo a principios DDD</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Compartido\Delgado.Ddd.Recepcion.Compartido.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Delgado.Ddd.KernellCompartido" />
+    <None Remove="Eventos\" />
+    <None Remove="Excepciones\" />
+    <None Remove="Interfaces\" />
+    <None Remove="Ardalis.Result" />
+    <None Remove="MediatR" />
+    <None Remove="Agregados\" />
+    <None Remove="AgregadosSincronizados\" />
+    <None Remove="Eventos\EventosDeIntegracion\" />
+    <None Remove="AgregadosParaCalendario\Guardias\" />
+    <None Remove="AgregadosParaCalendario\Especificaciones\" />
+    <None Remove="AgregadosSincronizados\Especificaciones\" />
+    <None Remove="AgregadosSincronizados\Especificaciones\Cliente\" />
+    <None Remove="AgregadosSincronizados\Especificaciones\Peluqueros\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Delgado.Ddd.KernellCompartido" Version="1.0.0" />
+    <PackageReference Include="Ardalis.Result" Version="3.1.2" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Eventos\" />
+    <Folder Include="Excepciones\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="AgregadosParaCalendario\" />
+    <Folder Include="AgregadosSincronizados\" />
+    <Folder Include="Eventos\EventosDeIntegracion\" />
+    <Folder Include="AgregadosParaCalendario\Guardias\" />
+    <Folder Include="AgregadosParaCalendario\Especificaciones\" />
+    <Folder Include="AgregadosSincronizados\Especificaciones\" />
+    <Folder Include="AgregadosSincronizados\Especificaciones\Clientes\" />
+    <Folder Include="AgregadosSincronizados\Especificaciones\Peluqueros\" />
+  </ItemGroup>
+</Project>
