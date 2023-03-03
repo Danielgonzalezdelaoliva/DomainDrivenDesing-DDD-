@@ -1,0 +1,7 @@
+source:
+https://github.com/dotnet-architecture/eShopOnContainers
+
+
+BFF: backend for frontend
+Crear un backend específico para cada paras cada dispositivo. 
+Web y aplicación mobil ==> crear un backend para en entorno web y otro backend distinto para el entorno movil
